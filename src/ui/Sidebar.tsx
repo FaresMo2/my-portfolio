@@ -4,8 +4,8 @@ import InfoIcons from "./InfoIcons";
 function Sidebar() {
   return (
     <div className="w-96 bg-[#1E1E1E] component rounded-lg py-16 max-h-[calc(100vh-100px)]">
-      <div className="relative bg-[#373737] aspect-square w-40 p-10 mx-auto flex justify-center items-center rounded-xl overflow-hidden">
-        <img src="s" alt="LOGO" className="object-cover object-top" />
+      <div className="relative bg-[#373737] aspect-square w-40 mx-auto rounded-xl overflow-hidden">
+        <img src="/Me.jpg" alt="LOGO" className="object-cover " />
       </div>
 
       <div className="py-7 space-y-3 text-center">

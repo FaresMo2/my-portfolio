@@ -67,6 +67,15 @@ const whatImDoing: Project[] = [
     demo: "https://to-do-list-beta-jet.vercel.app/",
     tech: "react",
   },
+  {
+    image: "/project-image2.jpg",
+    name: "Hangman Game",
+    description:
+      "A user-friendly web application where users can fully customize their pizza orders, manage their cart, and utilize an API to autofill their delivery address. The app generates an order number for tracking purposes, and users can search for their order by ID.",
+    github: "https://github.com/FaresMo2/Hangman-Game",
+    demo: "https://faresmo2.github.io/Hangman-Game/",
+    tech: "js",
+  },
 ];
 
 function Portfolio() {

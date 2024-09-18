@@ -3,6 +3,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 interface Project {
@@ -13,7 +14,16 @@ interface Project {
   demo: string;
 }
 
+const descritionLength = 180;
+
 export default function ProjectCard({ project }: { project: Project }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const description: string =
+    project.description.length >= descritionLength
+      ? project.description.slice(0, descritionLength)
+      : project.description;
+
   return (
     <Card
       sx={{
@@ -33,11 +43,17 @@ export default function ProjectCard({ project }: { project: Project }) {
           {project.name}
         </Typography>
         <Typography variant="body2" sx={{ color: "#adb5bd" }}>
-          {project.description}
+          {isOpen ? `${project.description}  ` : `${description}  `}
+          <button
+            className="text-blue-500"
+            onClick={() => setIsOpen((c) => !c)}
+          >
+            Read More
+          </button>
         </Typography>
       </CardContent>
       <CardActions>
-        <div className="pl-3 pb-4 flex items-center gap-4">
+        <div className="flex items-center gap-4 pb-4 pl-3">
           <Link to={`${project.github}`} target="_black">
             Github
           </Link>

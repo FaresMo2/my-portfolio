@@ -1,11 +1,15 @@
+import Form from "./Form";
 import Title from "../../ui/Title";
+import Footer from "../../ui/Footer";
 
-function page() {
+function Contact() {
   return (
-    <div>
+    <div className="">
       <Title title="Contact Me" />
+      <Form />
+      <Footer />
     </div>
   );
 }
 
-export default page;
+export default Contact;

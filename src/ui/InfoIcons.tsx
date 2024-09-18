@@ -29,19 +29,19 @@ function InfoIcons() {
   };
 
   return (
-    <ul className="w-3/4 mx-auto my-14 space-y-10">
+    <ul className="w-3/4 mx-auto space-y-10 my-14">
       {info.map((res) => (
         <li
           key={res.title}
-          className="email flex items-center cursor-pointer"
+          className="flex items-center cursor-pointer email"
           onClick={() => copyToClipboard(res.description)}
         >
-          <span className="flex items-center justify-center h-10 w-10 rounded-lg mr-3 text-yellow-300 bg-zinc-900 cursor-pointer transition duration-300 hover:bg-zinc-700">
+          <span className="flex items-center justify-center mx-auto text-yellow-300 transition duration-300 rounded-lg cursor-pointer lg:mx-0 lg:mr-3 lg:w-10 lg:h-10 bg-zinc-900 hover:bg-zinc-700">
             {res.icon}
           </span>
           <div>
-            <p className="text-gray-50/80">{res.title}</p>
-            <p className="text-gray-100">{res.description}</p>
+            <p className="hidden text-gray-50/80 lg:block">{res.title}</p>
+            <p className="hidden text-gray-100 lg:block">{res.description}</p>
           </div>
         </li>
       ))}

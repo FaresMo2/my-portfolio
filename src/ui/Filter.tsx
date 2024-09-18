@@ -14,25 +14,19 @@ interface FilterProps {
 
 // Define the functional component with typed props
 function Filter({ filterField, options }: FilterProps) {
-  const searchParams = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   function handleClick(value: string): void {
-    // Create a new URLSearchParams object
-    const newSearchParams = new URLSearchParams(searchParams.toString());
-
-    // Set the filter field in the new search params
-    newSearchParams.set(filterField, value);
-
-    // Update the search params
-    window.history.replaceState(null, "", `?${newSearchParams.toString()}`);
+    searchParams.set(filterField, value);
+    setSearchParams(searchParams);
   }
 
   return (
-    <div className="flex items-center gap-14 pl-2 mt-10 text-gray-100">
+    <div className="flex items-center pl-2 mt-10 text-gray-100 gap-14">
       {options.map((option) => (
         <button
           onClick={() => handleClick(option.value)}
-          className="cursor-pointer transition duration-300 hover:text-gray-400"
+          className="transition duration-300 cursor-pointer hover:text-gray-400"
           key={option.value}
         >
           {option.label}

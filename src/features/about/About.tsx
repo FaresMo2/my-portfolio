@@ -3,7 +3,7 @@ import WhatImDoing from "../../ui/WhatImDoing";
 
 export default function About() {
   return (
-    <div className="flex flex-col gap-4 h-full py-7">
+    <div className="flex flex-col h-full pb-7 gap-x-4 gap-y-3">
       <Title title="About Me" />
 
       <p className="text-lg text-gray-50/80">

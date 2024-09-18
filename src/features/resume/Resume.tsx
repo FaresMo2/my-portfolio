@@ -1,11 +1,13 @@
 import Title from "../../ui/Title";
-import TimeLine from "../../ui/TimeLine";
+import TimeLine from "./EducationTimeline";
+import Skills from "./Skills";
 
 function Reusem() {
   return (
-    <div>
+    <div className="">
       <Title title="Reusem" />
       <TimeLine />
+      <Skills />
     </div>
   );
 }

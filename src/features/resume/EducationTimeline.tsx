@@ -5,10 +5,21 @@ import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
 
 export default function EducationTimeline() {
   return (
-    <div className="mt-10">
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={itemVariants}
+      className="mt-10 "
+    >
       <Timeline
         sx={{
           width: "1700px",
@@ -23,7 +34,7 @@ export default function EducationTimeline() {
           </TimelineSeparator>
           <TimelineContent
             sx={{
-              fontSize: "32px",
+              fontSize: "40px",
               fontWeight: "bold",
             }}
           >
@@ -92,6 +103,6 @@ export default function EducationTimeline() {
           </TimelineContent>
         </TimelineItem>
       </Timeline>
-    </div>
+    </motion.div>
   );
 }

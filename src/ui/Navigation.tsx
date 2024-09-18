@@ -22,7 +22,7 @@ const nav = [
 function Navigation() {
   return (
     <div className="component flex items-center py-6 px-16 text-lg bg-[#282828] w-1/2 ml-auto rounded-l-xl">
-      <ul className="flex items-center gap-24 w-full justify-end">
+      <ul className="flex items-center justify-end w-full gap-24">
         {nav.map((link) => (
           <li
             key={link.name}

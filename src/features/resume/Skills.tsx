@@ -48,7 +48,7 @@ function Skills() {
           </TimelineSeparator>
           <TimelineContent
             sx={{
-              fontSize: "32px",
+              fontSize: "40px",
               fontWeight: "bold",
               color: "white",
             }}
@@ -57,10 +57,13 @@ function Skills() {
           </TimelineContent>
         </TimelineItem>
       </Timeline>
-      <div className="p-20 mx-auto">
+      <div className="px-20 py-10 pt-5 mx-auto">
         <ul className="grid grid-cols-3 grid-rows-3 gap-20 ">
           {skillsList.map((skill) => (
-            <li className="component w-34 bg-[#282828] aspect-square cursor-pointer transition duration-300 flex items-center justify-center hover:scale-105">
+            <li
+              key={skill.skill}
+              className="component w-34 bg-[#282828] aspect-square cursor-pointer transition duration-300 flex items-center justify-center hover:scale-105"
+            >
               <div className="flex flex-col items-center space-y-7">
                 <p className="text-3xl text-gray-50/80">{skill.skill}</p>
                 <p className="text-gray-50/80">{skill.icon}</p>

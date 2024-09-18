@@ -1,6 +1,7 @@
-import Title from "../../ui/Title";
-import ProjectCard from "./ProjectCard";
-import Filter from "../../ui/Filter";
+import { motion } from "framer-motion";
+import Title from "../ui/Title";
+import ProjectCard from "../features/portfolio/ProjectCard";
+import Filter from "../ui/Filter";
 import { useSearchParams } from "react-router-dom";
 
 interface Project {
@@ -156,6 +157,11 @@ const whatImDoing: Project[] = [
   },
 ];
 
+const variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 function Portfolio() {
   const [searchParams] = useSearchParams();
   const filterValue = searchParams.get("tech") || "all";
@@ -172,7 +178,7 @@ function Portfolio() {
     filterArray = whatImDoing.filter((op) => op.tech === "htmlcss");
 
   return (
-    <div className="py-12">
+    <motion.div initial="hidden" animate="visible" variants={variants}>
       <Title title="Portfolio" />
       <Filter
         filterField="tech"
@@ -191,7 +197,7 @@ function Portfolio() {
           </li>
         ))}
       </ul>
-    </div>
+    </motion.div>
   );
 }
 

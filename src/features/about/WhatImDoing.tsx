@@ -2,6 +2,7 @@ import { IoLogoWebComponent } from "react-icons/io5";
 import { SiFramework7 } from "react-icons/si";
 import { SiCssdesignawards } from "react-icons/si";
 import { IoIosPeople } from "react-icons/io";
+import { motion } from "framer-motion"; // Import Framer Motion
 
 const whatImDoing = [
   {
@@ -30,22 +31,31 @@ const whatImDoing = [
   },
 ];
 
+const listItemVariants = {
+  hidden: { opacity: 0, y: 20 }, // Initial state (hidden)
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }, // Animate to visible
+};
+
 function WhatImDoing() {
   return (
-    <div className="mt-10 ">
+    <div className="mt-10">
       <h2 className="mb-4 text-3xl text-gray-100">What I&apos;m Doing</h2>
-      <ul className="grid grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-10">
-        {whatImDoing.map((res) => (
-          <li
-            className="flex gap-4 px-10 py-6 rounded-md component"
+      <ul className="grid grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-6">
+        {whatImDoing.map((res, index) => (
+          <motion.li
             key={res.title}
+            className="flex gap-4 px-10 py-6 rounded-md component"
+            initial="hidden" // Start with hidden state
+            animate="visible" // Animate to visible state
+            variants={listItemVariants} // Apply the defined variants
+            transition={{ delay: index * 0.2 }} // Add staggered delay for each item
           >
             <div className="mt-1 text-yellow-300">{res.icon}</div>
             <div className="space-y-3">
               <h3 className="text-xl text-gray-100">{res.title}</h3>
               <p className="text-base text-gray-50/70">{res.description}</p>
             </div>
-          </li>
+          </motion.li>
         ))}
       </ul>
     </div>

@@ -1,9 +1,15 @@
+import { motion } from "framer-motion";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { IoIosSend } from "react-icons/io";
 
 // Regular expressions for email and username (full name)
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+const formVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
 
 function Form() {
   const [name, setName] = useState("");
@@ -77,7 +83,13 @@ function Form() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="block w-3/4 mx-auto mt-20">
+    <motion.form
+      onSubmit={handleSubmit}
+      className="block w-3/4 mx-auto mt-20"
+      variants={formVariants}
+      initial="hidden"
+      animate="visible"
+    >
       {/* Form inputs */}
       <div className="flex flex-wrap gap-20 mb-10 input-text">
         <div className="flex flex-col w-[400px]">
@@ -87,7 +99,7 @@ function Form() {
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="px-2 py-3 bg-transparent border border-gray-100 rounded-sm outline-none name cursor-text caret-gray-100 text-gray-50 "
+            className="px-2 py-3 bg-transparent border border-gray-100 rounded-sm outline-none name cursor-text caret-gray-100 text-gray-50"
             type="text"
             id="name"
             placeholder="Full name"
@@ -123,7 +135,7 @@ function Form() {
       <button className="flex items-center justify-center gap-2 px-3 py-4 mt-20 ml-auto font-bold text-gray-200 border border-yellow-300 rounded-md w-44">
         <IoIosSend color="yellow" /> Send Message
       </button>
-    </form>
+    </motion.form>
   );
 }
 

@@ -2,6 +2,9 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { IoIosSend } from "react-icons/io";
 
+// Regular expressions for email and username (full name)
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
 function Form() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -9,21 +12,27 @@ function Form() {
 
   const isValid = (): boolean => {
     let result: boolean = true;
-    if (name === null || name === "") {
+
+    // Username validation
+    if (name === "" || name === null) {
       result = false;
       toast.error("Please, Enter Your Name", {
         position: "top-right",
       });
     }
-    if (email === null || email === "") {
+
+    // Email validation
+    if (!emailRegex.test(email)) {
       result = false;
-      toast.error("Please, Enter Your Email", {
+      toast.error("Please, enter a valid email", {
         position: "top-right",
       });
     }
-    if (message === null || message === "") {
+
+    // Message
+    if (message === "" || message === null) {
       result = false;
-      toast.error("Please, Enter A Message", {
+      toast.error("Please, enter a message", {
         position: "top-right",
       });
     }
@@ -31,21 +40,45 @@ function Form() {
     return result;
   };
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (isValid()) {
-      toast.success("Message Sent Successfully", {
-        position: "top-center",
-      });
-      setName("");
-      setEmail("");
-      setMessage("");
+      const formData = { name, email, message };
+
+      try {
+        const response = await fetch("https://formspree.io/f/xzzplpzz", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          toast.success("Message Sent Successfully", {
+            position: "top-center",
+          });
+          setName("");
+          setEmail("");
+          setMessage("");
+        } else {
+          toast.error("Failed to send message. Please try again.", {
+            position: "top-right",
+          });
+        }
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      } catch (error) {
+        toast.error("An error occurred. Please try again.", {
+          position: "top-right",
+        });
+      }
     }
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit} className="block w-3/4 mx-auto mt-20">
+      {/* Form inputs */}
       <div className="flex flex-wrap gap-20 mb-10 input-text">
         <div className="flex flex-col w-[400px]">
           <label htmlFor="name" className="mb-2 text-gray-100 cursor-pointer">
@@ -76,7 +109,7 @@ function Form() {
       </div>
 
       <div className="flex flex-col w-full">
-        <label htmlFor="name" className="mb-2 text-gray-100 cursor-pointer">
+        <label htmlFor="message" className="mb-2 text-gray-100 cursor-pointer">
           Your Message
         </label>
         <textarea

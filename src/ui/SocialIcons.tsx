@@ -13,7 +13,6 @@ function SocialIcons() {
       >
         <FaGithub />
       </Link>
-      https://x.com/Faresmo221
       <Link
         to="https://www.linkedin.com/in/fares-mohamed-576968267/"
         target="_blank"

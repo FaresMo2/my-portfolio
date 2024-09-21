@@ -31,7 +31,12 @@ export default function ProjectCard({ project }: { project: Project }) {
       : project.description;
 
   return (
-    <motion.div variants={cardVariants} initial="hidden" animate="visible">
+    <motion.div
+      variants={cardVariants}
+      initial="hidden"
+      animate="visible"
+      className="py-10"
+    >
       <Card
         sx={{
           maxWidth: 375,

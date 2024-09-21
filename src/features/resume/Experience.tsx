@@ -12,13 +12,13 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-export default function EducationTimeline() {
+function Experience() {
   return (
     <motion.div
       initial="hidden"
       animate="visible"
       variants={itemVariants}
-      className="mt-10"
+      className="my-16"
     >
       <Timeline
         sx={{
@@ -38,7 +38,7 @@ export default function EducationTimeline() {
               fontWeight: "bold",
             }}
           >
-            <h1 className="text-gray-200">Education</h1>
+            <h1 className="text-gray-200">Experience</h1>
           </TimelineContent>
         </TimelineItem>
 
@@ -54,17 +54,13 @@ export default function EducationTimeline() {
               gap: "8px",
             }}
           >
-            <h3 className="text-xl font-bold text-yellow-400">
-              Modern Academy for Computer Science
-            </h3>
-            <p>2020-2024</p>
+            <h3 className="text-xl font-bold text-yellow-400">Pizza.Co 🍕</h3>
+            <p>2023</p>
             <p>
-              I graduated with a degree in Computer Science, achieving a GPA of
-              2.75. My studies covered a broad range of topics, including
-              programming, algorithms, data structures, and software
-              engineering. I gained a solid foundation in both theoretical
-              concepts and practical skills, preparing me for various roles in
-              the tech industry
+              A comprehensive dashboard for managing hotel reservations,
+              available rooms, and all other aspects related to hotel
+              management. Users can adjust settings, view detailed information,
+              and perform actions like logging in to manage the system.
             </p>
           </TimelineContent>
         </TimelineItem>
@@ -82,7 +78,7 @@ export default function EducationTimeline() {
             }}
           >
             <h3 className="text-xl font-bold text-yellow-400">
-              My Graduation Project - A+
+              The Wild Oasis 🏨
             </h3>
             <p>Skin Cancer Detection</p>
             <p>
@@ -106,3 +102,5 @@ export default function EducationTimeline() {
     </motion.div>
   );
 }
+
+export default Experience;

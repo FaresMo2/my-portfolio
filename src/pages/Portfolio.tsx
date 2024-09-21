@@ -148,11 +148,21 @@ const whatImDoing: Project[] = [
   {
     id: 14,
     image: "/project-image14.jpg",
-    name: "EAT-N-SPLIT",
+    name: "EAT-N-SPLIT 🙋‍♂️",
     description:
       "Split a Bill is a web application that helps users manage and split bills among friends. Users can add friends, select them, and calculate how much each person owes based on their share of the total bill.",
     github: "https://github.com/FaresMo2/EAT-N-SPLIT",
     demo: "https://eat-n-split-teal.vercel.app/",
+    tech: "react",
+  },
+  {
+    id: 15,
+    image: "/project-image15.jpg",
+    name: "The Atomic Blog ⚛️",
+    description:
+      "The Atomic Blog is a simple, responsive blogging application built with React. It allows users to create, delete, and manage blog posts with ease. The app features an archive system for old posts and supports a dark mode for better readability in low-light environments.",
+    github: "https://github.com/FaresMo2/Atomic-Blog",
+    demo: "https://atomic-blog-rosy.vercel.app/",
     tech: "react",
   },
 ];

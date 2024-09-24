@@ -165,6 +165,16 @@ const whatImDoing: Project[] = [
     demo: "https://atomic-blog-rosy.vercel.app/",
     tech: "react",
   },
+  {
+    id: 16,
+    image: "/project-image16.jpg",
+    name: "Type Rush ⌨️",
+    description:
+      "Welcome to the Typing Speed Challenge! This web application is designed to test and improve your typing speed through a series of timed typing exercises.",
+    github: "https://github.com/FaresMo2/typeRush",
+    demo: "https://type-rush-kappa.vercel.app/",
+    tech: "react",
+  },
 ];
 
 const variants = {

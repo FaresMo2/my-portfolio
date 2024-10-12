@@ -182,7 +182,7 @@ const whatImDoing: Project[] = [
     description:
       "Welcome to the Typing Speed Challenge! This web application is designed to test and improve your typing speed through a series of timed typing exercises.",
     github: "https://github.com/FaresMo2/the-wild-oasis-website",
-    demo: "https://the-wild-oasis-website-chi-puce.vercel.app/",
+    demo: "https://the-wild-oasis-website-flame-ten.vercel.app/",
     tech: "next",
   },
 ];

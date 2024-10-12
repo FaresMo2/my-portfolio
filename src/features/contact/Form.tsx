@@ -15,6 +15,7 @@ function Form() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const isValid = (): boolean => {
     let result: boolean = true;
@@ -51,7 +52,7 @@ function Form() {
 
     if (isValid()) {
       const formData = { name, email, message };
-
+      setIsLoading(true);
       try {
         const response = await fetch("https://formspree.io/f/xzzplpzz", {
           method: "POST",
@@ -68,6 +69,7 @@ function Form() {
           setName("");
           setEmail("");
           setMessage("");
+          setIsLoading(false);
         } else {
           toast.error("Failed to send message. Please try again.", {
             position: "top-right",
@@ -132,9 +134,18 @@ function Form() {
         />
       </div>
 
-      <button className="flex items-center justify-center gap-2 px-3 py-4 mt-20 ml-auto font-bold text-gray-200 border border-yellow-300 rounded-md w-44">
-        <IoIosSend color="yellow" /> Send Message
-      </button>
+      <div className="group">
+        <button
+          disabled={isLoading}
+          className="flex items-center justify-center gap-2 px-3 py-4 mt-20 ml-auto font-bold text-gray-200 transition duration-300 border border-yellow-300 rounded-md w-44 group-hover:bg-yellow-300 group-hover:text-black"
+        >
+          <IoIosSend
+            className="text-yellow-300 text-red-5000 group-hover:text-black"
+            size={20}
+          />
+          {isLoading ? "Sending..." : "Send Message"}
+        </button>
+      </div>
     </motion.form>
   );
 }

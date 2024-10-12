@@ -46,7 +46,7 @@ const whatImDoing: Project[] = [
     tech: "react",
   },
   {
-    id: 5,
+    id: 4,
     image: "/project-image4.jpg",
     name: "To-Do List",
     description:
@@ -61,8 +61,8 @@ const whatImDoing: Project[] = [
     name: "Weather App",
     description:
       "This is a Weather Application built with React (Vite) and Tailwind CSS, offering users the ability to search for weather conditions by city or country and view forecasts for the upcoming days. The app includes a map feature, which allows users to search for their current location.",
-    github: "https://github.com/FaresMo2/to-do-list",
-    demo: "https://to-do-list-beta-jet.vercel.app/",
+    github: "https://github.com/FaresMo2/Weather-App?tab=readme-ov-file",
+    demo: "https://weather-app-beryl-ten-80.vercel.app/",
     tech: "react",
   },
   {
@@ -178,7 +178,7 @@ const whatImDoing: Project[] = [
   {
     id: 17,
     image: "/project-image17.jpg",
-    name: "The Wild Oasis 🏩",
+    name: "The Wild Oasis Website🏩",
     description:
       "Welcome to the Typing Speed Challenge! This web application is designed to test and improve your typing speed through a series of timed typing exercises.",
     github: "https://github.com/FaresMo2/the-wild-oasis-website",
@@ -222,7 +222,7 @@ function Portfolio() {
       />
       <ul className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-10 mt-10">
         {filterArray.map((project) => (
-          <li key={project.name}>
+          <li key={project.id}>
             <ProjectCard project={project} />
           </li>
         ))}

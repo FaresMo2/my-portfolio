@@ -3,7 +3,7 @@ import InfoIcons from "./InfoIcons";
 
 function Sidebar() {
   return (
-    <div className="sidebar px-2 py-20 w-20 lg:w-96 bg-[#1E1E1E] component lg:rounded-lg  lg:py-16 h-screen lg:max-h-[calc(100vh-70px)]">
+    <div className="sidebar relative z-50 px-2 py-20 w-20 lg:w-96 bg-[#1E1E1E] component lg:rounded-lg  lg:py-16 h-screen lg:max-h-[calc(100vh-70px)]">
       <div className="w-8 rounded-full relative bg-[#373737] aspect-square lg:w-40 mx-auto lg:rounded-xl overflow-hidden">
         <img src="/Me.jpg" alt="LOGO" className="object-cover" />
       </div>

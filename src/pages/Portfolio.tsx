@@ -175,6 +175,16 @@ const whatImDoing: Project[] = [
     demo: "https://type-rush-kappa.vercel.app/",
     tech: "react",
   },
+  {
+    id: 17,
+    image: "/project-image17.jpg",
+    name: "The Wild Oasis 🏩",
+    description:
+      "Welcome to the Typing Speed Challenge! This web application is designed to test and improve your typing speed through a series of timed typing exercises.",
+    github: "https://github.com/FaresMo2/the-wild-oasis-website",
+    demo: "https://the-wild-oasis-website-chi-puce.vercel.app/",
+    tech: "next",
+  },
 ];
 
 const variants = {
